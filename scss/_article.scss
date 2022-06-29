@@ -1,0 +1,450 @@
+main
+{   
+    background:$background_main;
+    min-width: 320px;
+    h2,
+    .rows
+    {
+        padding:20px 30px;
+    }
+    .rows
+    {
+      display: grid;
+      gap:60px 20px;
+    }
+    .menu
+    {
+        display: inline;
+        img
+        {
+          width: 25px;
+          height: 20px;
+          margin-right: 10px;
+        }
+        @media (min-width:800px)
+        {
+          display: none;
+        }
+    }
+    .row
+    {
+        background:$background_row;
+        box-shadow: 4px 4px 1px 0px $box_shadow_sidebar;
+    }
+    .account
+    {
+        padding:30px;
+    }
+  }
+
+.account
+{
+    display: flex;
+    flex-direction: column-reverse;
+    gap:45px 25px;
+    @media (min-width:1060px)
+    {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .edit_profile
+    {
+        display: flex;
+        flex-direction: column;
+        background: $background_row;
+        padding: 0 15px;
+        box-shadow: 3px 3px 2px 3px $box_shadow_sidebar;
+        .row_head
+        {
+            background-color: $nav_link_background;
+            color:$color_text;
+            margin-top:-10px;
+            z-index: 1;
+            padding-left: 15px;
+            padding-top: 10px;
+            .name
+            {
+                font-size: 17px;
+            }
+            .details
+            {
+                margin: 10px 0;
+                font-size: 14px;
+            }
+        }
+    }
+    .row_body
+    {
+      height: 100%;
+    }
+}
+
+.fields 
+{
+    flex-grow: 1;
+    @media (max-width:540px)
+    {
+      display: flex;
+      flex-direction: column;
+    }
+    .field
+    {
+      margin:3% 0;
+      input
+      {
+          border:none;
+          border-bottom: 1px solid $color_bottom_input;
+          margin-top: 20px;
+          padding-top: 10px;
+          width: 100%;
+          display: inline-block;
+      }
+      textarea
+      {
+          border:none;
+          border-bottom: 1px solid $color_bottom_input;
+          margin-top: 20px;
+          padding-top: 10px;
+          width: 100%;
+          height: 25px;
+          display: inline-block;
+      }
+      &:not(:first-child)
+      {
+          margin-left: 20px;
+          @media (max-width:540px)
+          {
+            margin-left: 0px;
+          }
+      }
+    }
+}
+
+.edit_profile .fields.first,
+.fields.second,
+.fields.fourth
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fields.second .field
+{
+    min-width: 210px;
+    flex-grow: 1;
+}
+
+.button_field
+{
+    float: right;
+    input
+    {
+        display: block;
+        background: $nav_link_background;
+        border:none;
+        padding:10px 50px;
+        color:white;
+        margin-bottom: 15px;
+    }
+}
+
+.profile{
+    text-align: center;
+    background: $background_row;
+    box-shadow: 3px 3px 2px 3px $box_shadow_sidebar;
+
+    @media (min-width:1060px)
+    {  
+      height: 300px;
+    }
+    .avatar
+    {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-top: -30px;
+        z-index: 1;
+        box-shadow: 2px 2px 13px 0px $box_shadow_sidebar;
+        img
+        {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+    }
+    .profession
+    {
+        font-size: 13px;
+        margin:20px 0;
+    }
+    .avatar_name
+    {
+        margin:20px 0;
+    }
+    .avatar_description
+    {
+      margin:0 20px;
+    }
+}
+
+@mixin img_row($background)
+{
+    background-color: $background;
+}
+
+.rows.first
+{
+    grid-template-columns: repeat(2,1fr);
+    .row
+    {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+    }
+    .info_row
+    {
+        padding: 15px 5px;
+        text-align: right;
+    }
+    .img_row
+    {
+      position: absolute;
+      top: -21%;
+      width: 65px;
+      height: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      color:$background_row;
+    }
+    .name
+    {
+        font-size: 10px;
+        color:grey;
+    }
+    .details
+    {
+        font-size: 20px;
+    }
+    @media (max-width:650px)
+    {
+      grid-template-columns: repeat(1,1fr);
+      row-gap:50px;
+      column-gap: 0px;
+    }
+    @media (min-width:1060px)
+    {
+      grid-template-columns: repeat(4,1fr);
+    }
+}
+
+.green
+{
+  @include img_row($first_block_background);
+}
+
+.yellow
+{
+  @include img_row($second_block_background);
+}
+
+.blue
+{
+  @include img_row($third_block_background);
+}
+
+.red
+{
+  @include img_row($fourth_block_background);
+}
+
+ .status 
+{
+    padding:15px 0;
+    font-size: 12px;
+    display: flex;
+    img
+    {
+      width: 15px;
+      height: 15px;
+      margin-right: 5px;
+    }
+}
+
+.rows.second
+{
+    grid-template-columns: repeat(3,1fr);
+    .row
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+
+        @media (max-width:650px)
+        {
+          &:not(:first-child)
+          {
+              margin-left: 0px;
+          }
+        }
+    }
+    .img_row
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 90px;
+        color:$color_text;
+        padding: 20px;
+        margin-top:-10px;
+        z-index: 1;
+        img
+        {
+          width: 100%;
+        }
+    }
+    
+    .info_row
+    {
+        padding: 10px 0;
+    }
+    .details
+    {
+        font-size: 13px;
+    }
+    @media (max-width:650px)
+    {
+        grid-template-columns: repeat(1,1fr);
+        row-gap: 60px;
+    }
+}
+
+
+.rows.third
+{
+    grid-template-columns: repeat(1,1fr);
+    @media (min-width:1060px)
+    {
+      grid-template-columns: repeat(2,1fr);
+    }
+    .row
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    .row.left 
+    {
+      .head_row
+      {
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        color:$color_text;
+        margin-top:-10px;
+        z-index: 1;
+        font-size: 15px;
+        padding-left: 10px;
+
+        @media (max-width:650px)
+        {
+          max-width: 455px;
+        }
+      }
+      .body_row 
+      {
+        .column
+        {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px 0;
+        }
+        .column:not(:last-child)
+        {
+          border-bottom: 1px solid $color_bottom_input;
+        }
+        input
+        {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        .icons
+        {
+            display: flex;
+            align-items: center;
+            margin: 5px 10px 0px 0px;
+            gap:15px;
+            img
+            {
+              width: 25px;
+              height: 25px;
+            }
+        }
+        span
+        {
+            display: inline-block;
+            max-width: 500px;
+        }
+      }
+      .variant
+      {
+          display: flex;
+      }
+    }
+    .option
+    {
+      margin-left: 10px;
+          
+      padding: 10px 15px;
+
+        @media (max-width:650px)
+        {
+
+          padding: 10px 0px;
+        }
+        &:hover,
+        &.selected
+        {       
+          background: $option_hover;
+          transition: .3s;
+        }
+    }
+    .row.right 
+    {
+      .head_row
+      {
+        min-height: 75px;
+        color:$color_text;
+        margin-top:-10px;
+        z-index: 1;
+        padding-left: 15px;
+        padding-top: 10px;
+        .details
+        {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+      }
+      .body_row
+      {
+          border-collapse: collapse;
+          margin: 20px 0px;
+          td
+          {
+              padding: 10px 0;
+          }
+          tr:not(:last-child)
+          {
+              border-bottom: 1px solid $color_bottom_input;
+          }
+          .headline
+          {
+              color:$headTable;
+          }
+      }
+    }
+}

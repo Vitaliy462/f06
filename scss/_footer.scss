@@ -1,0 +1,35 @@
+.more
+{
+    border-top: 1px solid $color_list;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+    .info
+    {
+        display: flex;
+        flex-direction: column;
+        @media (min-width:450px)
+        {
+            flex-direction: row;
+        }
+    }
+    .info a
+    {
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-right: 15px;
+        font-size: 14px;
+    }
+    .text
+    {
+        color:$footer_text_color;
+    }
+    @media (min-width:450px)
+    {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

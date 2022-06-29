@@ -1,0 +1,27 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+li
+{
+    list-style-type: none;
+}
+
+body
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    @media (min-width:800px)
+    {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
+}
